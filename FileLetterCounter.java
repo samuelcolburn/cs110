@@ -23,39 +23,62 @@ import java.io.*;
 public class FileLetterCounter{
 
    //START METHOD MAIN
-   public static void main(String [] args) throws IOException {
-
-
-   //GET the file name
-   String filename;
+   public static void main(String [] args)throws IOException{
    
-   Scanner inputfilename = new Scanner(System.in);
-   System.out.println("Enter the filename: ");
-   filename = inputfilename.nextLine();
+      //initialize variables
+      String filename;  //filename input by user
+      String input;     //input for each line of the file
+      String character;    //character you are counting in the file
+      int count;  //count of the character in the file
    
    
-   //GET the character they want
+      //GET the file name 
+      Scanner inputfilename = new Scanner(System.in);
+      System.out.print("Enter the filename: ");
+      filename = inputfilename.nextLine();
+      
+      //GET the character they want
+      Scanner inputcharacter = new Scanner(System.in);
+      System.out.print("Enter Character to count: ");
+      character = inputcharacter.nextLine();
+       
+      
+      //OPEN the file
+      File file = new File(filename);
+      Scanner inFile = new Scanner(file);
+      
+      count = 0;
+      while (inFile.hasNext())
+      {
+         input = inFile.charAt();
+         
+         System.out.print(input+" ");
+         
+         if(input.equals(character)){
+            
+            count ++;
+         }
+         
+      }
+      
+      
+      System.out.println("~~~~~~~~~");
+      System.out.println("Done.");
+      System.out.println("Total number of character "+character+": "+count);
+      // Close the file.
+      inFile.close();
    
-   //OPEN the file
-   
-   //READ the file for the character, add to counter each time
-   
-   //DISPLAY count of that character
-   
+      
+     
+      
+     
+      
+      //READ the file for the character, add to counter each time
+      
+      //DISPLAY count of that character
+      
    
    
    }//END METHOD MAIN
-   
-   
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
-   
+    
 }//END CLASS FileLetterCounter

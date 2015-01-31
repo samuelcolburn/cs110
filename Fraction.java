@@ -1,6 +1,9 @@
 /** 
 Fraction Class  to implement fractions (rational numbers)
 */
+
+//public can be accessed by any client
+// 
 public class Fraction
 {
    private int numerator;
