@@ -15,14 +15,13 @@
 // import libraries
 import java.util.Scanner;
 import javax.swing.JOptionPane;
-import java.text.DecimalFormat;
 import java.io.*;
 
 
 //START CLASS FileLetterCounter
 public class FileLetterCounter{
 
-   //START METHOD MAIN
+   //START METHOD main
    public static void main(String [] args)throws IOException{
    
       //initialize variables
@@ -33,52 +32,43 @@ public class FileLetterCounter{
    
    
       //GET the file name 
-      Scanner inputfilename = new Scanner(System.in);
-      System.out.print("Enter the filename: ");
-      filename = inputfilename.nextLine();
+      filename = JOptionPane.showInputDialog ("Enter the filename: ");
       
       //GET the character they want
-      Scanner inputcharacter = new Scanner(System.in);
-      System.out.print("Enter Character to count: ");
-      character = inputcharacter.nextLine();
-       
+      character = JOptionPane.showInputDialog ("Enter the character to count: ");
+      //Convert string input into char primitive
+      char letter = character.charAt(0);
+
       
       //OPEN the file
       File file = new File(filename);
       Scanner inFile = new Scanner(file);
       
+      //initialize the count to zero
       count = 0;
-      while (inFile.hasNext())
-      {
-         input = inFile.charAt();
+      
+      //loop through the file until it ends
+      while (inFile.hasNext()){
+         input = inFile.nextLine();
          
-         System.out.print(input+" ");
+         //for each line of the file, check the string at each index value. If its == to the input letter, up the count
+         for(int i=0 ; i != input.length() ; i++) {
          
-         if(input.equals(character)){
+            char check = input.charAt(i);
             
-            count ++;
-         }
-         
-      }
+            if (check == letter) {
+               count ++;
+            } //end if
+         }// end for loop
+      }//end while loop
       
-      
-      System.out.println("~~~~~~~~~");
-      System.out.println("Done.");
-      System.out.println("Total number of character "+character+": "+count);
       // Close the file.
       inFile.close();
    
-      
-     
-      
-     
-      
-      //READ the file for the character, add to counter each time
-      
       //DISPLAY count of that character
-      
-   
-   
-   }//END METHOD MAIN
+      //System.out.println("Total number of character "+character+": "+count);
+      JOptionPane.showMessageDialog(null,"Total number of character '"+character+"': "+count);
+
+   }//END METHOD main
     
 }//END CLASS FileLetterCounter
