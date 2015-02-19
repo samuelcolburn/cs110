@@ -49,6 +49,15 @@ public class BankAccount
    {
       balance += amount;
    }
+   
+   public void deposit(String str){
+   
+     // balance += Double.parseDouble(str);
+     
+     //or
+     
+     deposit(Double.parseDouble(str));
+   }
 
    /**
       The withdraw method withdraws an amount
@@ -67,9 +76,9 @@ public class BankAccount
       @param b The value to store in the balance field.
   */
 
-   public void setBalance(double b)
+   public void setBalance(double balance)
    {
-      balance = b;
+      this.balance = balance;
    }
 
   

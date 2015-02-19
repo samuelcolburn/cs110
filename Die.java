@@ -41,8 +41,14 @@ public class Die
     {
       // create Random object
       rand = new Random();
+      
       // set number of side on die
+      if ( numSides < MIN_SIDES){
+         sides = MIN_SIDES;
+      }
+      else{
       sides = numSides;
+      }
       // Call the roll method to randomly 
       // set the value of the die.
       roll();
